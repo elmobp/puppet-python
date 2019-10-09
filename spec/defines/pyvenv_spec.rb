@@ -5,7 +5,7 @@ describe 'python::pyvenv', type: :define do
     context("on #{os} ") do
       let :facts do
         # python3 is required to use pyvenv
-        facts.merge(
+        facts = facts.merge(
           python3_version: '3.5.1'
         )
       end
