@@ -57,7 +57,7 @@ class python (
   Stdlib::Absolutepath $anaconda_install_path     = $python::params::anaconda_install_path,
   Boolean $manage_scl                             = $python::params::manage_scl,
   Optional[Pattern[/[0-7]{1,4}/]] $umask          = undef,
-  String  $virtualenv_package                     = $python::params:virtualenv_package
+  String  $virtualenv_package                     = $python::params::virtualenv_package
 ) inherits python::params {
 
   $exec_prefix = $provider ? {
