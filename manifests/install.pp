@@ -256,7 +256,7 @@ class python::install {
             }
           }
 
-          $virtualenv_package = "${python}-virtualenv"
+          $virtualenv_package = $install_virtualenv_package
         }
         'Debian': {
           if fact('lsbdistcodename') == 'trusty' {
