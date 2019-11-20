@@ -34,7 +34,7 @@ class python::install {
     default => $python::virtualenv,
   }
 
-  $virtualenv_package = $python::virtualenv_package ? {
+  $install_virtualenv_package = $python::virtualenv_package ? {
     undef   => "${python}-virtualenv",
     default => $python::virtualenv_package
   }
@@ -61,7 +61,7 @@ class python::install {
 
   package { 'virtualenv':
     ensure  => $venv_ensure,
-    name    => "${python}-virtualenv",
+    name    => $install_virtualenv_package,
     require => Package['python'],
   }
 
