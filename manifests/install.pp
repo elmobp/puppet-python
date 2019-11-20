@@ -34,6 +34,11 @@ class python::install {
     default => $python::virtualenv,
   }
 
+  $virtualenv_package = $python:virtualenv_package ? {
+    undef   => "${python}-virtualenv",
+    default => $python:virtualenv_package
+  }
+
   if $venv_ensure == 'present' {
     $dev_ensure = 'present'
     unless $python::dev {
