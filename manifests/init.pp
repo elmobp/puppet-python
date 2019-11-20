@@ -58,6 +58,7 @@ class python (
   Boolean $manage_scl                             = $python::params::manage_scl,
   Optional[Pattern[/[0-7]{1,4}/]] $umask          = undef,
   String  $virtualenv_package                     = $python::params::virtualenv_package
+  String  $pip_package                            = $python::params::pip_package
 ) inherits python::params {
 
   $exec_prefix = $provider ? {

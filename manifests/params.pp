@@ -15,6 +15,7 @@ class python::params {
   $valid_versions         = undef
   $manage_scl             = true
   $virtualenv_package     = undef
+  $pip_package            = undef
 
   if $::osfamily == 'RedHat' {
     if $::operatingsystem != 'Fedora' {

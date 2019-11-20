@@ -39,6 +39,11 @@ class python::install {
     default => $python::virtualenv_package
   }
 
+  $install_pip_package = $python::pip_package ? {
+    undef   => "${python}-pip",
+    default => $python::pip_package
+  }
+
   if $venv_ensure == 'present' {
     $dev_ensure = 'present'
     unless $python::dev {
@@ -275,7 +280,7 @@ class python::install {
 
       if String($python::version) =~ /^python3/ {
         $pip_category = undef
-        $pip_package = "${python}-pip"
+        $pip_package = $install_pip_package
         $pip_provider = $python.regsubst(/^.*python3\.?/,'pip3.').regsubst(/\.$/,'')
       } elsif ($::osfamily == 'RedHat') and (versioncmp($::operatingsystemmajrelease, '7') >= 0) {
         $pip_category = undef
